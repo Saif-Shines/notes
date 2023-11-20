@@ -1,32 +1,13 @@
-# Mintlify Starter Kit
+# Personal Notes
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
+This is my personal knowledge base and reference for things I've learned over the years. It contains links, notes, code snippets, and tutorials collected from courses, books, forums, and my own experience.
 
-- Guide pages
-- Navigation
-- Customizations
-- API Reference pages
-- Use of popular components
+The goal is to provide a curated set of documentation that can help others ramp up quickly on both foundational and more advanced skills across a variety of topics.
 
-### Development
+## I want one too
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+*This project will be open source. Instructions to set it up yourself will come soon*
 
-```
-npm i -g mintlify
-```
+## License
 
-Run the following command at the root of your documentation (where mint.json is)
-
-```
-mintlify dev
-```
-
-### Publishing Changes
-
-Install our Github App to autopropagate changes from youre repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
-
-#### Troubleshooting
-
-- Mintlify dev isn't running - Run `mintlify install` it'll re-install dependencies.
-- Page loads as a 404 - Make sure you are running in a folder with `mint.json`
+The content here is shared under an open source [MIT license](license.md). Feel free to reuse or adapt it.
