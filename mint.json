@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Saif's Notes",
+  "name": "Notes",
   "favicon": "/favicon.svg",
   "colors": {
     "primary": "#5C5470",
@@ -22,57 +22,17 @@
   "tabs": [
     {
       "name": "Productivity",
-      "url": "api-reference"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Frontend",
-      "icon": "browsers",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Full Stack",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Tools & Frameworks",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    },
-    {
-      "name": "Fundamentals",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "productivity"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "group": "About",
+      "pages": ["about"]
     },
     {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
+      "group": "Productivity",
+      "pages": ["productivity/introduction"]
     }
   ],
   "footerSocials": {
