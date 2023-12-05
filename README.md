@@ -6,7 +6,7 @@ The goal is to provide a curated set of documentation that can help others ramp 
 
 ## I want one too
 
-*This project will be open source. Instructions to set it up yourself will come soon*
+_This project will be open source. Instructions to set it up yourself will come soon_
 
 ## License
 

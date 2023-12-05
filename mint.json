@@ -31,6 +31,10 @@
       "pages": ["about"]
     },
     {
+      "group": "Fundamentals",
+      "pages": ["skills/fundamentals/getting-into-js"]
+    },
+    {
       "group": "Productivity",
       "pages": ["productivity/introduction"]
     }
