@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Saif's Notes",
+  "name": "Notes",
   "favicon": "/favicon.svg",
   "colors": {
     "primary": "#5C5470",
@@ -27,8 +27,12 @@
   ],
   "navigation": [
     {
-      "group": "Frontend",
-      "pages": ["introduction", "quickstart", "development"]
+      "group": "About",
+      "pages": ["about"]
+    },
+    {
+      "group": "Productivity",
+      "pages": ["productivity/introduction"]
     }
   ],
   "footerSocials": {
