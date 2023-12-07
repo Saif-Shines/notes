@@ -1,0 +1,544 @@
+# CSS Grids and Flexbox for Responsive Web Design
+
+# Introduction and Setup
+
+[jen4web/fem-layout](https://github.com/jen4web/fem-layout)
+
+🗒️ One thing I have learned in this introduction is that, Flexbox alone was never intended to be used to layout Web pages. It was intended to layout galleries and similar stuff.
+
+### The 3 Characteristics of Responsive Design
+
+1. Flexible grid-based layout
+2. Media queries
+3. Images that resize
+
+# Floats
+
+- These are basically an Hack from the start, right after table-based layout!
+- Features rows and cells.
+- Rows clear the floats on the cells.
+- Source ordering determines the display, though some(minor) rearrangement is possible.
+- Major disadvantages: equal column heights
+
+Here is a interesting learning I wish to share when naming the elements. Atleast while using floats.
+
+## Learning how to name css when using floats
+
+⛺fem-layout 👉 /Users/saifas/Masters/Layout/fem-layout/day-1-flexbox/1-intro-floats/end/floats.html
+
+1. This file will essentially a series of articles that developer is expected to float and build a 4 rowed layout.
+    1. First row is should have 4 articles on desktop viewport and 2 articles on mobile viewport.
+    2. Second row should have 2 articles with each article layed out side by side. Desktop Viewport.
+    3. Third row should have 2 articles. 1st article should take up  $1 / 4^th$   of the space and 2nd article should take 3/4th of the space.
+    4. Row 4 should contain 1 article taking up entire  entire space.
+2. To achieve these goals, the articles need to be smartly named.
+3. Notice `<article class="col-1-2">`this means the article can take up one column or two columns.
+
+Similarly in the rest of the code,
+
+```html
+<div class="wrapper">
+<!-- row 1, 4 individual boxes -->
+		<div class="row">
+			<article class="col-1-2">
+				<h3>Boston Cream Pie</h3>
+			    <img src="img/boston-cream.jpg" alt="Boston creme pie.">
+			    <p>Boston's famous dessert, a combination of yellow cake, vanilla pudding, and chocolate frosting.</p>
+			    <p><a href="http://www.foodnetwork.com/recipes/boston-cream-pie-recipe0-1908702">Read more &gt;&gt;</a></p>
+			</article>
+			<article class="col-1-2">
+		    	<h3>Coconut Cream Pie</h3>
+		    	<img src="img/coconut-cream.jpg" alt="Coconut cream pie.">
+		    	<p>Coconut cream pie will take you to an island escape. Especially delicious in winter.</p>
+		    	<p><a href="https://www.favfamilyrecipes.com/coconut-cream-pie-2/">Read more &gt;&gt;</a></p>
+		    </article>
+		    <article class="col-1-2">
+		    	<h3>Key Lime Pie</h3>
+		    	<img src="img/keylime-pie.jpg" alt="Key lime pie.">
+		    	<p>Key lime pie is based on the tiny key limes from Florida. These limes are less sour than conventional limes. </p>
+		    	<p><a href="https://www.epicurious.com/recipes/food/views/key-lime-pie-108125" target="_blank">Read more &gt;&gt;</a></p>
+		    </article>
+		    <article class="col-1-2">
+		    	<h3>Pumpkin Pie</h3>
+		    	<img src="img/pumpkin-pie.jpg" alt="Pumpkin pie.">
+		    	<p>A staple of every Thanksgiving dinner table, pumpkin pie is delicious any time of year.</p>
+		    	<p><a href="http://www.kingarthurflour.com/recipes/pumpkin-pie-recipe" target="_blank">Read more &gt;&gt;</a></p>
+		    </article>
+		</div>
+<!-- row 2, 2 boxes spanning 2 rows -->
+		<div class="row">
+		    <article class="col-2">
+		    	<h3>Key Lime Pie</h3>
+		    	<img src="img/keylime-pie.jpg" alt="Key lime pie.">
+		    	<p>Key lime pie is based on the tiny key limes from Florida. These limes are less sour than conventional limes. </p>
+		    	<p><a href="https://www.epicurious.com/recipes/food/views/key-lime-pie-108125" target="_blank">Read more &gt;&gt;</a></p>
+		    </article>
+		    <article class="col-2">
+		    	<h3>Pumpkin Pie</h3>
+		    	<img src="img/pumpkin-pie.jpg" alt="Pumpkin pie.">
+		    	<p>A staple of every Thanksgiving dinner table, pumpkin pie is delicious any time of year.</p>
+		    	<p><a href="http://www.kingarthurflour.com/recipes/pumpkin-pie-recipe" target="_blank">Read more &gt;&gt;</a></p>
+		    </article>
+		</div>
+<!-- row 3: narrow left column, wide right/content column -->
+		<div class="row">
+			<article class="col-1-4">
+				<h3>Boston Cream Pie</h3>
+			    <img src="img/boston-cream.jpg" alt="Boston creme pie.">
+			    <p>Boston's famous dessert, a combination of yellow cake, vanilla pudding, and chocolate frosting.</p>
+			    <p><a href="http://www.foodnetwork.com/recipes/boston-cream-pie-recipe0-1908702">Read more &gt;&gt;</a></p>
+			</article>
+			<article class="col-3">
+		    	<h3>Coconut Cream Pie</h3>
+		    	<img src="img/coconut-cream.jpg" alt="Coconut cream pie.">
+		    	<p>Coconut cream pie will take you to an island escape. Especially delicious in winter.</p>
+		    	<p><a href="https://www.favfamilyrecipes.com/coconut-cream-pie-2/">Read more &gt;&gt;</a></p>
+		    </article>
+		</div>
+<!-- row 4: one column -->
+		<div class="row">
+			<article class="col-4">
+				<h3>Boston Cream Pie</h3>
+			    <img src="img/boston-cream.jpg" alt="Boston creme pie.">
+			    <p>Boston's famous dessert, a combination of yellow cake, vanilla pudding, and chocolate frosting.</p>
+			    <p><a href="http://www.foodnetwork.com/recipes/boston-cream-pie-recipe0-1908702">Read more &gt;&gt;</a></p>
+			</article>
+		</div>
+```
+
+Additional code to note is,
+
+```html
+<link rel="stylesheet" href="css/normalize.css">
+```
+
+The above line talks about `normalize.css` which usually seems to be stylesheet that will help the web app to be consistent across browsers. For now, that's all I know.
+
+## Leveraging this class naming in CSS
+
+Before diving deep into it lets begin to understand some initial parts of the code,
+
+```css
+/* Border box declaration 
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box;
+}
+/* inherit border-box on all elements in the universe and before and after
+ */
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+```
+
+The above is optimal way of box-sizing. This essentially helps the developer to have his HTML elements which follow box model to have combined width and height along the element's content. So it takes the burden off the developer to combine border + padding + content just to adjust the width.
+
+```css
+.row::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+```
+
+The above is some special piece of code.
+
+By default when developer applies `float:left` to an element. Next element to is wraps around. If developer wants to let this next element to not wrap around, he has to apply `clear:left`
+
+```css
+[class*="col-"] {
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+  min-height: 1px;
+}
+```
+
+In the above piece, `[class*="col-"]` is particularly interesting to us. Because
+
+1. This selector actually selects all the elements which contains "col-" in their class names. In this case, it essentially selects all the articles.
+
+# Flexbox
+
+1. The first layout elements — but not designed to layout whole web pages
+2. Features flex containers(row) and flex-items(cells). Both are required to work.
+3. Excels at vertical centering and equal heights
+4. Very easy to reorder boxes
+5. Major disadvantages:
+    1. Wasn't designed to be locked down for layouts! Works in 1 dimension only.
+    2. Browser support and syntax is challenging.
+
+### cheatsheet
+
+```
+Flexbox Properties
+
+Parent (Flex Container)
+	display: flex | inline-flex;
+
+	flex-direction: row | row-reverse | column | column-reverse;
+
+	flex-wrap: wrap | nowrap | wrap-reverse;
+
+	flex-flow (shorthand for flex-direction and flex-wrap)
+
+	justify-content (main axis): flex-start | flex-end | center | space-between | space-around | space-evenly;
+
+	align-items (cross axis - adjust to individual sizes): flex-start | flex-end | center | baseline | stretch;
+
+	align-content (cross axis - adjust to largest item): flex-start | flex-end | center | stretch | space-between | space-around;
+
+Children (Flex Items)
+	order: <integer>;
+
+	flex-grow: <number>; 
+
+	flex-shrink: <number>; 
+
+	flex-basis: <length> | auto;
+
+	flex: shorthand for grow, shrink, and basis (default:  0 1 auto)
+	
+	align-self: overrides alignment set on parent
+```
+
+# Flexbox Grid
+
+### Flexbox Parent vs Flexbox Items
+
+Parent: Don't consider **parent** as the official name
+
+1. It has more to do with how items are arranged
+2. How much space is inside or around it.
+3. How the items inside are aligned
+
+Children
+
+1. This has more to do with what order they are laid out.
+2. What is the width of each element. If that can be put in that way.
+- Why shouldn't we use `width` css rule inside of flex child?
+    
+    Because `width` is strict property. That means if you assign it with *pixels* or *percentages*, browser makes sure it is strictly mentioned pixel or percentage wide. But using `flex-basis` will make the the item to be **adaptive** along side other siblings. It make it seem just OKAY.
+    
+
+🗒️
+
+1. `flex: 2 1 25%` occupies `25%` width and grows at the speed of `2x` and shrinks at the rate of `1x` when resizing.
+2. Default values are  ****
+    1. **0** for **flex-grow**
+    2. **1** for **flex-shrink**
+    3. **auto** for **flex-basis**
+    4. **1** for **order**
+
+# Flexbox Exercises
+
+### How do I name the classes in the right way?
+
+First of all there is no right way. But I'd try to put down the way I understood.
+
+💁Look the **flexbox.html** and **flexbox.css** in folder *flexbox-grid*
+
+Understand the CSS Cascade
+
+1. We wrote mobile first
+2. Them Mobile landscape with media query break point.
+3. Then Desktop version
+
+Okay getting back to nameing:
+
+1. I will first look at how many flex container are there and how many flex items are there in the each row.
+2. I will try to imagine the build in mobile layout first. Because it will have more common css rules come early. More you go down the cascade you can apply more specific rules tablet and desktop layouts.
+3. Have a mind map of CSS to be as following:
+    1. A Border Sizing CSS rules which is common.
+    2. CSS rules that apply to all the body
+        1. anchor tags
+        2. font-family
+        3. wrap the entire body inside a div if necessary and apply general rules to them.
+        4. Any common behaviour for all the images/spans in your body
+    3. The comes the mobile first css
+    4. Then media query for tablet size
+    5. Then media query for Desktop size
+    
+    ```css
+    @media only screen and (min-width: 480px){
+    
+    }
+    
+    @media only screen and (min-width:768px){
+    
+    }
+    ```
+    
+4. Once you have the cascade mechanics set up. You need to have parllel thinking of nameing classes to flex items and flex containers.
+5. I would start by imagining how many rows webpage may have.
+    1. Then row would be container class
+6. Once done, I will start to imagine number of items I want to the row to contain.
+    1. This will help decide the what percentages I need to give in flex basis. For example if 4 items, I can give `flex: 0 0 25%` . 
+    2. But Ideally you will also want take margin into account. If `flex-flow: row` , then along the main axis(runs left to right), you should plan to leave may be `magin-left: 4%` so that items have space between them. This will turn give ideall each item `flex: 0 0 20%` to contain the row.
+7. For the flex items in the first row, if it has 4 items in it
+    1. I would call each as `col-1` . My interpretation is since I decided to have 4 columns, I will give each item a `col-1` and add nothing in mobile first css but next in the cascade of desktop: `flex: 0 0 20%` . Mobile: `flex: 0 0 44%` .
+    2. Now I understand that `col-1` has to increasingly to be changed to tablet and desktop. But Ideally the goal is stack 2 items in the top and 2 items in the bottom for tablet. and all 4 items in a row in desktop. That means, it can take 1 column in desktop.
+    3. So change the class name for each of these `col-1-2`
+    
+
+To make a image seem responsive with a hack
+
+```css
+img {
+	width: 100%;
+}
+
+<Selector to this parent of img experiencing flex>{
+	flex: 0 0 50%; // Ensures img expands to its full size and yet 50% amongst other flex items
+}
+```
+
+# Responsive Images
+
+The ways of loading the images in a webpage:
+
+Load a big image and let it scale
+
+This is not a very good approach. The reason is no matter the size of the client device, application is still trying to request a very big image and use it. Not a optimised image for the receiver's device.
+
+Server-side
+
+This is a good approach. Application when it makes requests to the server, it will tell the server of the client screen size. Server will to the checking work and send the right image size to the browser.
+
+Client-side:
+
+Not a good approach. Load several images on the client side and pick the image that suits the client. The worst part is that, application downloads all the image sizes nevertheless causing data costs.
+
+Client-side with JS:
+
+Let the JavaScript decide on the client side what to do. perform it. It's better solution.
+
+### Solving with <picture> tag in HTML
+
+This possibly the cheap and best solution out there. 
+
+For example, if your code is something like following,
+
+```html
+<div class="non-responsive-image">
+	<img src="img/an-car-image-50px" alt="A car image of 50 px" />
+ </div>
+```
+
+But with picture tag,
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<picture>
+	<source srcset="an-car-image-500px" media="(min-width: 500px)">
+	<source srcset="an-car-image-910px" media="(min-width: 800px)">
+	<source srcset="an-car-image-1200px" media="(min-width: 1200px)">
+	<img src="img/an-car-image-50px" alt="A car image of 50 px" />
+</picture>
+```
+
+1. The **meta** tag helps the browser to become aware to leverage `<picture>` tag.
+2. You can add how many source tags ever you may want.
+3. Browsers checks with media attribute to load the src that is suitable.
+
+[Picturefill](http://scottjehl.github.io/picturefill/)
+
+[Media Query & Asset Downloading Results](https://timkadlec.com/2012/04/media-query-asset-downloading-results/)
+
+### Why do we need to add height?
+
+Most of the places for elements app needs to be specifed *width* css rule. May be in Flex form, *flex-basis* rule. How ever, consider a situation where app with want to load a background image.
+
+```html
+<div id="background-image"></div>
+```
+
+And the best css would be,
+
+```css
+@media all and (min-width: 601px) {
+    #test5 {
+        background-image:url('images/test5-desktop.png');
+        width:200px;
+        height:75px;
+    }
+}
+@media all and (max-width: 600px) {
+    #test5 {
+        background-image:url('images/test5-mobile.png');
+        width:200px;
+        height:75px;
+    }
+}
+```
+
+Observations here,
+
+1. `height` css rule is applied. The reason is, default, the height of an element is determined by the browser when element is rendered by the browser. If you look at this case, the `div` element **doesn't** actually have an *content* in it. 
+2. In that case, as a developer you can approximate the **height** of the image as you already know it (because you will tend to maintain all `srcset` to support picture tag). And set that in the CSS as shown above.
+3. Lastly, if you look at the `min-width` attribute of media query, it's just 1px diff. The reason for this is, when CSS rule like `#background-image{ background-image:url('images/test5-desktop')}` is used directly, browser loads all the variants, which is bad performance(by loading unnecessary image size for particular screen)
+
+# CSS Grid
+
+1. Built into CSS spec (now a recommendation)
+2. No "row" markkup required.
+3. Grid is designed to work in 2 dimensions
+4. use Flexbox for UI elements, but use Grid for major layout.
+
+> Mobile browser doesn't necessarily require CSS Grid.
+> 
+
+[Can I use... Support tables for HTML5, CSS3, etc](http://caniuse.com)
+
+### Approach
+
+1. Figure out number of rows and colums
+2. Then accordingly try to add `grid-row: x / y;` and `grid-column: x / y;` 
+3. Grid will start re arranging the items as specified automatically.
+4. Now if you want to have each item do have different size. Go back to `.wrapper` and add `grid-template-rows: Apx Bpx Cpx Dpx;` and similarly `grid-template-columns: Apx Bpx Cpx;` . Assign the values (A B C Ds) to this rule based on number of rows or columns app requires.
+
+🗒️
+
+### Notes
+
+1. You can use *percentages* and *ems* in `grid-template-rows:;` or `grid-template-columns:;` 
+2. Or you can use the same in this way, `grid-template-rows: repeat(4, 1fr);` or `grid-template-columns: repeat(5, auto);` . **1fr** just means that it is a fraction or a cell. and **auto** means that CSS Grid will automatically handle, adding rows for you.
+
+## Grid Properties
+
+```css
+Grid Properties
+
+Parent (Grid Container)
+	display: grid | inline-grid;
+
+	grid-template-columns
+	grid-template-rows: [optional: line name, in square brackets] <track-size> | <repeat>;
+		track-size: length, %, fr, auto
+		line name: an arbitrary name for this item. If no name assigned, a number is used
+
+		examples:
+		.myClass {
+		  grid-template-columns: [col1] 40px [col2] 3fr;
+		  grid-template-rows: 50% 25vh auto;
+		}
+
+		.anotherClass {
+		  grid-template-rows: repeat(2, 350px [name]) 10%;
+		}
+		translates to
+		.anotherClass {
+		  grid-template-rows: 350px [name] 350px [name] 10%;
+		}
+
+	grid-template-areas: 
+		List of names of areas. First, name areas via selector. Then specify layout via this property. Area name must be specified for each column/row. A . indicates no content in this row/column.
+
+		Note: in this example, the lines are named automatically: header-start, header-end, article-start, article-end, etc.
+
+		example: 
+		.class1 {
+		  grid-area: header;
+		}
+		.class2 {
+		  grid-area: article;
+		}
+		.class3 {
+		  grid-area: aside;
+		}
+		.wrapper {
+		  grid-template-columns: 1fr 3fr;
+		  grid-template-rows: auto;
+		  grid-template-areas: 
+		    "header header header header"
+		    "aside . article article"; // . means skip that cell
+		}
+
+	grid-template: 
+		Shorthand for grid-template-rows, grid-template-columns, and grid-template-areas in 1 declaration. Not covered in class.  
+
+	grid-column-gap: <number>;
+	grid-row-gap: <number>;
+		Distance between rows and/or columns. At one point, only pixels were accepted for this - browser bug?
+
+	grid-gap: 
+		Shorthand for grid-column-gap and grid-row-gap. 
+		1 number = same in all directions
+		2 numbers = row column
+
+	justify-items: start | end | center | stretch;
+		align grid items on row axis
+		stretch is default
+
+	align-items: start | end | center | stretch;
+		align grid items on column axis
+		stretch is default
+
+	justify-content: start | end | center | stretch | space-around | space-between | space-evenly;
+		If size of grid container is bigger than total of grid items, you can align grid items within the container (like flexbox). This works on row axis.
+
+	align-content:  start | end | center | stretch | space-around | space-between | space-evenly;
+		If size of grid container is bigger than total of grid items, you can align grid items within the container (like flexbox). This works on column axis.
+
+	grid-auto-columns
+	grid-auto-rows: <track-size>;
+		If you create grid cells beyond those specified in grid-template-columns and grid-template-rows, this specifies how big these extra rows/columns should be.
+
+	
+	grid: shorthand for all of the above properties. Not covered in class.
+
+Children (Grid Items)
+	grid-column-start
+	grid-column-end
+	grid-row-start
+	grid-row-end: <number> | <name> | span <number> | span <name> | auto;
+		This is the longhand for declaring individual values for start and end points for rows and columns.
+
+		example: 
+		.class1 {
+			grid-column-start: 1;
+			grid-column-end: span 4;
+			grid-row-start: 3;
+			grid-row-end: span footer-end;
+		}
+
+	grid-column
+	grid-row: <start-line> / <end-line> | <start-line> / span <value>;
+		Combines start and end values, as used extensively in class.
+
+		example: 
+		.class1 {
+			grid-column: 1 / span 4;
+			grid-row: 3 / span footer-end;
+		}	
+
+	grid-area:  <name> | <row-start> / <column-start> / <row-end> / <column-end>;
+	OR
+	<name>;
+		If you're confused, no wonder. grid-area can be used in 2 different ways:
+			a. Assign a name for the grid-template-areas property (see above example under grid container/grid-template-areas)
+
+			b. Assign a name AND the dimensions for a grid-template-areas property. If you use this methodology, you would not necessarily need a grid-template-rows and grid-template-columns declaration, depending on other factors.
+
+			example:
+			.class1 {
+			  grid-area: 1 / name3 / namedline / 4;
+			}
+
+	justify-self: start | end | center | stretch;
+		Aligns content in a grid item on the row axis. Overrides justify-items. 
+
+	align-self: start | end | center | stretch;
+		Aligns content in a grid item on the column axis. Overrides align-items.
+```
+
+[Grid "fallbacks" and overrides](https://rachelandrew.co.uk/css/cheatsheets/grid-fallbacks)
+
+[Grid by Example](https://gridbyexample.com/)
+
+# Wrapping Up
+
+Look at the final folder in the github repo.

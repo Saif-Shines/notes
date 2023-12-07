@@ -1,0 +1,7 @@
+﻿Falsy,Truthy
+"""""",Everything else returns true
+"0, -0",
+null,
+NaN,
+false,
+undefined,
