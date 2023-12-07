@@ -35,6 +35,10 @@
       "pages": ["skills/fundamentals/getting-into-js"]
     },
     {
+      "group": "Frontend",
+      "pages": ["skills/frontend/css-grid-and-flexbox"]
+    },
+    {
       "group": "Productivity",
       "pages": ["productivity/introduction"]
     }

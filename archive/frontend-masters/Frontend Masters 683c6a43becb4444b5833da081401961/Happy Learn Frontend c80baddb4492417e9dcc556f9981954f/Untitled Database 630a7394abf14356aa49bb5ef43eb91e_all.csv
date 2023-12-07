@@ -1,0 +1,8 @@
+﻿Tool,Comments
+QUnit,JavaScript unit testing framework
+Istanbul,"Test coverage toolHelps understanding how code coverage instrumentation works under the hood by parsing the source JS with ESPrima, adding instrumentation, and converting that back to instrumented code using ESCodegen"
+Puppeteer,Full-UI testing with headless Chrome
+Cypress,Headless full-UI testing with multiple headless browsers
+ESLint,Popular JS linting tool
+Husky,"Easy git hooking in NPM projects (check lint-staged, a tool that runs husky under the hood on only git-staged content)"
+Typescript,JS with type-checking
